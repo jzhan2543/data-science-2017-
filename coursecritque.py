@@ -10,6 +10,8 @@
 from __future__ import print_function
 import requests
 from bs4 import BeautifulSoup
+import xlwt
+import xlrd
 
 # DEFINING BROWSER HEADER SPECIFIC TO GOOGLE CHROME
 headers = {'User-Agent': 'Chrome/62.0.3202.94'}
@@ -58,15 +60,15 @@ count = 0;
 with open ('CS_1332.txt', 'w') as data:
     for row in website_table.find_all('tr'):
         for cell in row.find_all('th'):
-            if (counter%10 == 0):
+            if (counter%9 == 0):
                 data.write(cell.text.ljust(30))
-                data.write(' ')
-            elif (counter%10 == 1):
+                data.write('; ')
+            elif (counter%9 == 1):
                 data.write(cell.text.ljust(40))
-                data.write(' ')
+                data.write('; ')
             else:
                 data.write(cell.text.ljust(10))
-                data.write(' ')
+                data.write('; ')
             counter = counter + 1
             if (counter%9 == 0):
                 data.write('\n')
@@ -74,13 +76,26 @@ with open ('CS_1332.txt', 'w') as data:
         for cell in row.find_all('td'):
             if (count%9 == 0):
                 data.write(cell.text.ljust(30))
-                data.write(' ')
+                data.write('; ')
             elif (count%9 == 1):
                 data.write(cell.text.ljust(40))
-                data.write(' ')
+                data.write('; ')
             else:
                 data.write(cell.text.ljust(10))
-                data.write(' ')
+                data.write('; ')
             count = count + 1
             if (count%9 == 0):
                 data.write('\n')
+
+book = xlwt.Workbook()
+ws = book.add_sheet('First Sheet')
+f = open('CS_1332.txt', 'r+')
+data = f.readlines()
+for i in range(len(data)):
+    row = data[i].split(';')
+
+    for j in range(len(row)):
+        ws.write(i,j,row[j])
+
+book.save('CS_1332' + '.xls')
+f.close()
