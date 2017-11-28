@@ -1,0 +1,9 @@
+Professor                     ; Size                                    ; GPA       ; A%        ; B%        ; C%        ; D%        ; F%        ; W%        ; 
+Hudachek-Buswell, Mary Rebecca; Very Large (50 students or more)        ; 2.75      ; 31        ; 23        ; 21        ; 8         ; 5         ; 12        ; 
+Lebanon, Guy                  ; Very Large (50 Students or More)        ; 2.61      ; 25        ; 31        ; 22        ; 5         ; 10        ; 7         ; 
+Ram, Ashwin                   ; Small (10-20 Students)                  ; 2.70      ; 32        ; 24        ; 17        ; 8         ; 9         ; 12        ; 
+Smith, David M                ; Large (31-49 Students)                  ; 2.70      ; 32        ; 22        ; 17        ; 11        ; 7         ; 11        ; 
+Smith,David M                 ; Very Small (Fewer than 10 students)     ; 2.77      ; 35        ; 15        ; 16        ; 13        ; 4         ; 16        ; 
+Sweat, Monica                 ; Small (10-20 Students)                  ; 2.89      ; 31        ; 33        ; 17        ; 4         ; 5         ; 10        ; 
+Waters Jr, Robert L           ; Large (31-49 Students)                  ; 3.16      ; 50        ; 25        ; 14        ; 3         ; 5         ; 4         ; 
+Waters Jr., Robert L          ; Large (31-49 Students)                  ; 3.03      ; 41        ; 26        ; 15        ; 4         ; 5         ; 10        ; 
