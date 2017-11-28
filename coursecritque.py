@@ -7,6 +7,7 @@
 ####################################################################
 
 # LIBRARIES: requests, bs4
+from __future__ import print_function
 import requests
 from bs4 import BeautifulSoup
 
@@ -14,7 +15,7 @@ from bs4 import BeautifulSoup
 headers = {'User-Agent': 'Chrome/62.0.3202.94'}
 
 # TARGET URL TO SCRAPE
-url = 'https://critique.gatech.edu/course.php?id=MATH1512'
+url = 'https://critique.gatech.edu/course.php?id=CS1332'
 
 # CHECKING TO SEE IF CONNECTION HAS BEEN ESTABLISHED
 # SUCCESSFUL CONNECTION OCCURS WHEN STATUS.CODE == 200
@@ -52,18 +53,34 @@ for row in website_table.find_all('tr'):
         if (count%9 == 0):
             print()
 
-with open ('Math_1512.txt', 'w') as data:
+counter = 0;
+count = 0;
+with open ('CS_1332.txt', 'w') as data:
     for row in website_table.find_all('tr'):
         for cell in row.find_all('th'):
-            data.write(cell.text)
-            data.write(' ')
+            if (counter%10 == 0):
+                data.write(cell.text.ljust(30))
+                data.write(' ')
+            elif (counter%10 == 1):
+                data.write(cell.text.ljust(40))
+                data.write(' ')
+            else:
+                data.write(cell.text.ljust(10))
+                data.write(' ')
             counter = counter + 1
             if (counter%9 == 0):
                 data.write('\n')
 
         for cell in row.find_all('td'):
-            data.write(cell.text)
-            data.write(' ')
+            if (count%9 == 0):
+                data.write(cell.text.ljust(30))
+                data.write(' ')
+            elif (count%9 == 1):
+                data.write(cell.text.ljust(40))
+                data.write(' ')
+            else:
+                data.write(cell.text.ljust(10))
+                data.write(' ')
             count = count + 1
             if (count%9 == 0):
                 data.write('\n')
