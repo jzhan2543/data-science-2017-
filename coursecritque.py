@@ -51,3 +51,19 @@ for row in website_table.find_all('tr'):
         count = count + 1
         if (count%9 == 0):
             print()
+
+with open ('Math_1512.txt', 'w') as data:
+    for row in website_table.find_all('tr'):
+        for cell in row.find_all('th'):
+            data.write(cell.text)
+            data.write(' ')
+            counter = counter + 1
+            if (counter%9 == 0):
+                data.write('\n')
+
+        for cell in row.find_all('td'):
+            data.write(cell.text)
+            data.write(' ')
+            count = count + 1
+            if (count%9 == 0):
+                data.write('\n')
